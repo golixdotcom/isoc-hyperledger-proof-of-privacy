@@ -3,10 +3,10 @@
     "composer": "^0.20.0"
   },
   "name": "isoc-network",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "isoc blockchain demo for iot",
   "scripts": {
-    "prepublish": "mkdirp ./dist && composer archive create --sourceType dir --sourceName . -a ./dist/isoc-network.bna",
+    "prepublish": "mkdirp ./dist && composer archive create --sourceType dir --sourceName . -a ./dist/isoc-network0.0.4.bna",
     "pretest": "npm run lint",
     "lint": "eslint .",
     "test": "nyc mocha -t 0 test/*.js && cucumber-js"
@@ -15,8 +15,8 @@
     "composer",
     "composer-network"
   ],
-  "author": "Brighton Mukorera",
-  "email": "brighton@golix.com",
+  "author": "Golix",
+  "email": "dev@golix.com",
   "license": "Apache-2.0",
   "devDependencies": {
     "composer-admin": "^0.20.0",
