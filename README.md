@@ -25,7 +25,7 @@ For Mac OS
 ```
 touch .bash_profile
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
-nvm ‚Äî-version
+nvm ó-version
 
 nvm install --lts
 
@@ -40,7 +40,7 @@ Follow the instructions here to install Docker for Mac (stable): [https://docs.d
 
  Install the Hyperledger Composer Extension for VSCode
 
-Launch VSCode and then press the ‚ÄúExtensions‚Äù button on the vertical left toolbar.
+Launch VSCode and then press the ìExtensionsî button on the vertical left toolbar.
 
 Type  `composer`  into the search bar and then press the  `Install`  button next to the  `Hyperleger Composer`extension. Once the install completes you need to press the  `Reload`  button to activate the extension.
 
@@ -48,7 +48,9 @@ Type  `composer`  into the search bar and then press the  `Install`  button next
 1.  Essential CLI tools:
     
     ```
+    
     npm install -g composer-cli@0.20
+    
     
     ```
     
@@ -56,7 +58,9 @@ Type  `composer`  into the search bar and then press the  `Install`  button next
     
     
     ```
+    
     npm install -g composer-rest-server@0.20
+    
     
     ```
     
@@ -64,16 +68,21 @@ Type  `composer`  into the search bar and then press the  `Install`  button next
     
     
     ```
+    
     npm install -g generator-hyperledger-composer@0.20
+    
     
     ```
     
 4.  Yeoman is a tool for generating applications, which utilises  `generator-hyperledger-composer`:
      
     ```
+    
     npm install -g yo
     
+    
     ```
+    
 ### Install Playground
 
 If you've already tried Composer online, you'll have seen the browser app "Playground". You can run this locally on your development machine too, giving you a UI for viewing and demonstrating your business networks.
@@ -82,7 +91,9 @@ If you've already tried Composer online, you'll have seen the browser app "Playg
     
     
     ```
+    
     npm install -g composer-playground@0.20
+    
     
     ```
 
@@ -92,10 +103,12 @@ This step gives you a local Hyperledger Fabric runtime to deploy your business n
     
     
     ```
+    
     mkdir ~/fabric-dev-servers && cd ~/fabric-dev-servers
     
     curl -O https://raw.githubusercontent.com/hyperledger/composer-tools/master/packages/fabric-dev-servers/fabric-dev-servers.tar.gz
     tar -xvf fabric-dev-servers.tar.gz
+    
     
     ```
     
@@ -105,6 +118,7 @@ This step gives you a local Hyperledger Fabric runtime to deploy your business n
     
     
     ```
+    
     cd ~/fabric-dev-servers
     export FABRIC_VERSION=hlfv12
     ./downloadFabric.sh
@@ -117,29 +131,41 @@ The first time you start up a new runtime, you'll need to run the start script, 
 
 
 ```
+
     cd ~/fabric-dev-servers
     export FABRIC_VERSION=hlfv12
     ./startFabric.sh
     ./createPeerAdminCard.sh
+    
 ```
 ## Deploying your application
 
 Checkout your project and go to the folder of your project code
 To deploy the `isoc-network` to your local Fabric, use the Composer CLI and execute this sequence of commands:
+
 ```
+
 composer network install --archiveFile  isoc-network@0.0.1.bna  -- card PeerAdmin@hlfv1
 
 composer network start --networkName isoc-network --networkVersion 0.0.1 --networkAdmin admin --networkAdminEnrollSecret adminpw --card PeerAdmin@hlfv1 --file isocnetworkadmin.card
 
 composer card import --file isocnetworkadmin.card
 
+
 ```
+
 To make sure your network is up you can use the following command
+
 ```
+
 composer network ping --card admin@isoc-network
+
 ```
 From here your network should be ready and you can view it from playground.
 open a new terminal and run the following 
+
 ```
+
 composer-playground
+
 ```
